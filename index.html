@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Proyecto</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script>
+	
+	<style>
+		header{
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			background-color: black;
+			color: #ea4177;
+			text-align: right;
+		}
+		
+		body{
+			background-image: url('https://blogger.googleusercontent.com/img/a/AVvXsEho3ghb9_wIMrDiCnEUA1qtfk4SNZy5LC8BQFTHVyX3GX8qUzPiUDgpqAwabEFuqEt0Ogz_uNOLnlxTgKBYJXz0zVZOIBqNuSgnxMf33veYlareQIp0v3QMUXEMr6Ugp7M1Rzwf6ypLXqwKwuzMsN-QVtNvGBU5JSQhM4jed_QMtVHgbWLgeoUIv8Q9=s1600');
+			background-attachment: fixed;
+			background-size: cover;
+			font: Garamond, serif;
+		}
+
+		table, th, td {
+		  border: 1px solid black;
+		}
+		table.center {
+ 			 margin-left: auto;
+			  margin-right: auto;
+		}
+		table a{
+			color: #ea4177;
+		}
+		table a:hover{
+			color: #a32d53;
+		}
+
+		.sidebar{
+			height: 100%;
+			width: 269px;
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			background-color:black ;
+			color: #ea4177;
+			padding-top: 20px;
+		}
+		.sidebar a{
+			color: #ea4177;
+		}
+		.sidebar a:hover{
+			color: #a32d53;
+		}
+
+		.sidebar li .submenu{ 
+			list-style: none; 
+			margin: 0; 
+			padding: 0; 
+			padding-left: 1rem; 
+			padding-right: 1rem;
+		}
+
+		.entrada{
+			text-align: center;
+			position: relative;
+			left: 600px;
+			top: 192px;
+			bottom: 400px;
+			background-color: #fee7ee;
+			width: 660px;
+			padding-bottom: 10%;
+
+		}	
+			
+		aside{
+			text-align: center;
+			position: relative;
+			left: 600px;
+				
+			background-color: #fee7ee;
+			width: 660px;
+		}
+
+		footer{
+			position: absolute;
+			right: 0;
+			left: 0;
+			background-color: black;
+			color: #ea4177;
+			text-align: right;
+		}
+		#pfp{
+			width: 50px;
+			border-radius: 50px;
+		}
+	</style>
+	<script type="text/javascript">
+
+		document.addEventListener("DOMContentLoaded", function(){
+	
+			document.querySelectorAll('.sidebar .nav-link').forEach(function(element){
+	
+				element.addEventListener('click', function (e) {
+	
+					let nextEl = element.nextElementSibling;
+					let parentEl  = element.parentElement;	
+	
+					if(nextEl) {
+						e.preventDefault();	
+						let mycollapse = new bootstrap.Collapse(nextEl);
+	
+						  if(nextEl.classList.contains('show')){
+							  mycollapse.hide();
+						  } else {
+							  mycollapse.show();
+							  // find other submenus with class=show
+							  var opened_submenu = parentEl.parentElement.querySelector('.submenu.show');
+							  // if it exists, then close all of them
+							if(opened_submenu){
+								new bootstrap.Collapse(opened_submenu);
+							}
+	
+						  }
+					  }
+	
+				});
+			})
+	
+		}); 
+		// DOMContentLoaded  end
+	</script>
+</head>
+
+<body>
+	<header class="header" id="inicio">Proyecto HTML Aula Tecnología <br>
+	Blog Aula de Artística
+		<h1 style="color: white; text-align: center;">Aula de Artística</h1>
+		<p>Este blog/sitio web, será utilizado como blog para el aula de artística, <br>
+			ya que será aqui donde estaré registrando los avances de cada actividad que <br>
+			valla realizando a lo largo de cada semana. </p>
+	</header>
+
+	<div>
+		<!--En esta seccion se encuentra implementación deBootstrap, lo utilice para crear menús desplegables para los temas de cada semana-->
+		<nav class="sidebar">
+			<h3 style="color:#FFF ; text-align: center;">Navegación</h3>
+			<ul class="nav flex-column" id="nav_accordion">
+				<li class="nav-item">
+					<a class="nav-link" href="#inicio">Inicio</a>
+				</li>
+				<li class="nav-item has-submenu">
+					<a class="nav-link" href="#week1">Semana 1</a>
+					<ul class="submenu collapse">
+						<li><a class="nav-link" href="#week1"><b>Planos y Ángulos</b></a></li>
+						<li><a class="nav-link" href="#planos1">Planos Fotográficos</a></li>
+						<li><a class="nav-link" href="#angulos1">Ángulos Fotográficos</a></li>
+						<li><a class="nav-link" href="#ddc1">Detrás de Cámaras</a></li>
+					</ul>
+				</li>
+			
+				<li class="nav-item has-submenu">
+					<a class="nav-link" href="#week2">Semana 2</a>
+					<ul class="submenu collapse">
+						<li><a class="nav-link" href="#week2"><b>Bodegones</b></a></li>
+						<li><a class="nav-link" href="#b_lectura">Bodegón Lectura</a></li>
+						<li><a class="nav-link" href="#b_videojuegos">Bodegón Videojuegos</a></li>
+						<li><a class="nav-link" href="#b_puzzles">Bodegón Rompecabezas</a></li>
+						<li><a class="nav-link" href="#ddc2">Detrás de Cámaras</a></li>
+					</ul>
+				</li>
+
+				<li class="nav-item has-submenu">
+					<a class="nav-link" href="#week3">Semana 3</a>
+					<ul class="submenu collapse">
+						<li><a class="nav-link" href="#week3"><b>Iluminación</b></a></li>
+						<li><a class="nav-link" href="#i_ventana">Iluminación de Ventana</a></li>
+						<li><a class="nav-link" href="#i_artificial">Iluminación Artificial</a></li>
+						<li><a class="nav-link" href="#i_natural">Iluminación Natural</a></li>
+						<li><a class="nav-link" href="#ddc3">Detrás de Cámaras</a></li>
+					</ul>
+				</li>
+
+				<li class="nav-item has-submenu">
+					<a class="nav-link" href="#week4">Semana 4</a>
+					<ul class="submenu collapse">
+						<li><a class="nav-link" href="#week4"><b>Orientación del Encuadre</b></a></li>
+						<li><a class="nav-link" href="#en_horizontal">Encuadre Horizontal</a></li>
+						<li><a class="nav-link" href="#en_vertical">Encuadre Vertical</a></li>
+						<li><a class="nav-link" href="#en_inclinado">Encuadre Inclinado</a></li>
+						<li><a class="nav-link" href="#ddc4">Detrás de Cámaras</a></li>
+					</ul>
+				</li>
+
+				<li class="nav-item has-submenu">
+					<a class="nav-link" href="#week6">Semana 6</a>
+					<ul class="submenu collapse">
+						<li><a class="nav-link" href="#week6"><b>Intervención en la Fotografía</b></a></li>
+						<li><a class="nav-link" href="#recortes">Recortes</a></li>
+						<li><a class="nav-link" href="#ddc6">Detrás de Cámaras</a></li>
+					</ul>
+				</li>
+
+							<!--aqui voy a poner las listas para las demas semanas a lo largo que vayan pasando-->
+				<li class="nav-item">
+					<a class="nav-link" href="#ref">Ref</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+
+	<article class="entrada" id="week1">
+		<br>
+		<h2>Actividad 1 - Semana 1</h2>
+			<table class="center">
+				<tr>
+					<td><a href="#planos1">Planos fotográficos</a></td>
+					<td><a href="#angulos1">Angulos fotográficos</a></td>
+					<td><a href="#ddc1">Detras de Cámaras</a></td>
+				</tr>
+			</table>
+
+		<h3>Planos y Ángulos</h3>
+		<p>Para esta actividad seleccioné el libro de Oedipus Rex, alrededor de la página 35-36, <br>
+			en donde describe como la madre del protagonista Edipo, se cuelga del cuello en su <br>
+			dormitorio después de la revelación de los actos de su hijo.</p>
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEhJlxMYIIxskaf968eiwVvd9EUwyrF4jqsVaM6lkodsTsdUKKWoW3dHlLblNCdyR5FswCVXhDHYXOdQEVYeiEgKmjtDA6jrX48aN3EV9N4-XcpZaTqCXFZd_IyW5WiycMVNuRizvDDrCTbgvgFscRJ9usHKgnBaDWdwPEFtZvLEtWsr4knJuExfHa74">
+		<p>Entonces, basandome en esta parte de la lectura, decidi tomar esa idea y plasmarla en <br>
+			la escena de lo que serían mis fotografías; en un inicio realize la actividad con <br>
+			los primeros materiales que pude encontrar a mi alrededor, tomando creatividad y <br>
+			usando a una muñeca barbie y un cable de telefono para la escena, pero despues <br>
+			de reflexionar he vuelto a realizar la actividad, realizando la escena por completo <br>
+			de nuevo con unos cuantos detalles más, desde los materiales hasta el (intento de) fondo, <br>
+			todo para intentar recrear esa escena que elegí del libro. Ahora las fotografías.</p>
+		<br>
+
+		<section id="planos1">
+			<h4 class="subtituloidk">Planos fotográficos</h4>
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEgY_WM6YMBEW94G1Fb_2LajQCpeIdronGEFucNRBfb6UNOtNbuzeUr3Ckl9SzXQBlub9IRqzojk__AosbvV1cx5UHiz1gH1Bm61177IrclIMcrqpIuW5IAw2ei3OpjkCdp77Ij26GWONXVJ-ON94Xk5EQNtLV2uf2urPpYzcbHvYMa_bu5vYx-kfYiO" width="400" alt="Foto en plano entero">
+			<p><small>Tipo de plano entero, el protagonista de nuestra foto sale completamente</small></p>
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEixy5gt0uNAg4G30-EkL916fDO4k_Mtr4afkf9tEDTa0OCD5LS_qDJ1dK05y3DY6mxMH3uKdocoY_Zmlosrd9rXYXq3K-qMZeoZsAT_DtSAsu_pxoxNRJtlpOXzO1Jpu0w4Eh5QZwYlgGAhhwkmwlLZZzDYU3q_7iRtnICm__vS07dLOHwUDUE9G1mx" width="400" alt="Foto en plano americano">
+			<p><small>Tipo de plano americano, muestra 3/4 de la persona, cortando a la altura de la rodilla</small></p>
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEjOtL_GCISU5nSenpt0dEcmRl_9n2Bsyzr-_6mNL91Eh_tpyI60HMUZ-CmL86VM9RgsmJxN91rlLz8SE6DyATfOisYNl7ba6qO7lYkkiFP5ZqZOfPBm5qvOPEEA5Mnj7QHhp8Td2osrRTWRzS1lcHFfpKTXcQ9uZ1oQVMi8gLammqMRVc-DBs-7ZlQA" width="400" alt="Foto en clano de medio">
+			<p><small>Tipo de plano medio, encuadra a nuestro protagonista a la altura de la cintura</small></p>
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEh8IHd2NjM0J_6NjfJ22B_1fLG3CS-2xB_PQNVFp6qE9YJtvuJhK9qZf-gJGcIWbfBlVtcUvtYzd7hetF7Sicv0t8XgH-ccOD2YxqqSiD40iL9AyIg0nQnmExcB4mpko792H2Rl8b2hdqZuwXP-v_CuemXuB209oDL4QS1hxdID6WO6BX4_8DrXvWQo" width="400" alt="Foto en primer plano">
+			<p><small>Primer plano, encuadra al protagonista por encima del pecho y por debajo de los hombros, <br>
+				focalizandonos en su rostro</small></p>
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEgk2MnomXJ88AlNbH9qBo-moXb8GNJBBCVavbMuclv5IlXPcMzrLJdPsb7SuP4JJG-cU0lZO92Ppgg7BuIJ29_uHPk_s0RG4QS4GqDGm9C9IWWaYpbH3Y-qSKt9cA-RWD3j_XJrhOOJY7tguYUdczYGpiNS8IY6olbqmZYFT7NCWh3oJm_UNUcsn0GL" width="400" alt="Foto en plano detalle">
+			<p><small>Plano detalle, se centra en alguna parte concreta de nuestro protagonista</small></p>
+			<br>
+			<p><i>A pesar de que estoy enfocando principalmente al protagonista de las fotos, <br>
+				intente también enfocar un poco al fondo y dar una vibra al escenario <br>
+				asi como a los detalles, sobretodo en el último plano mostrado; ya que <br>
+				por la escena que representa, y por el hecho de que nuestro protagonista es <br>
+				una muñeca y no puede mostrar emociones, intento demostrar un equivalente a estas <br>
+				por medio de los detalles mostrados.</i></p>
+			<br>
+		</section>
+
+		<section id="angulos1">
+			<h4 class="subtituloidk">Ángulos fotográficos</h4>
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEgC3whjuP8y-pXldc7GXrKD6JU0u4Wkqg1G51Uib-CL9Bvrd3GPQJZY0oztGaqk6fyi_i7eZYP1Tr4rhW8ZZr5qyxm9eUU8Ekwlr0zcpw71aTgDvI-Ol5z3sVEbU9YQkUG37Yuqmo4uyGipeTYagOxM5X7Cf-r0_1-2cCE-6jHGmEu6r1xOLiaFy8oS" width="400" alt="Foto con angulo frontal">
+			<p><small>Ángulo contrapicado, la cámara está por debajo del protagonista, <br>
+				ligeramente angulada hacia arriba</small></p>
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEiuuHrk-N4J8n_OHRmTkeOYVvoizaOQnvl6avlmG-XAAQofJzCkEbnJNMV6PwFuOodPWNDkzL3TANtKGw7YGI2XLO3-BP799hNLhsnXZ1HJD0zAt3fu_V4BJunRdJKfvuKuYFSH7ZLpVZPgasjVZldURWjg-5sX3JIaETa3AxxO_tk3QzHd5lRnL131" width="400" alt="Foto con angulo contrapicado">
+			<p><small>Ángulo picado, se consigue situando la cámara por encima del protagonista, <br>
+				ligeramente angulada mirando hacia abajo</small></p>
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEhklMI1TTZk54vBcXv2o09SUx575Oj4Lcg-59rw9jrtqalFLfGEWEO-AS_tNdICdTnxuY3xg7t5dOOHPf6hwJ4lAsiQ08pvqZtbjCodsO7KDr0Ec4fduDRHWCRrfKWcK9eG8g_mszWY7kRUgjEKfNL4wua7-WS8sHm4-XqkKgiO93C1CbGovfCTBHb7" width="400" alt="Foto con angulo cenital">
+			<p><small>Ángulo cenital, donde la cámara esta encima de nuestro protagonista</small></p>
+			<p><i>Con estos ángulos intento contrastar a nuestro protagonista con <br>
+				el escenario en el que está, siendo como es descrito en la obra, <br>
+				un cuerpo colgando, tuve que dar un poco más de enfoque a el escenario, <br>
+				demostrando que nuestro protagonista estaba en su dormitorio <br>
+				en el momento en el que se colgó.</i></p>
+			<br>
+		</section>
+
+		<section id="ddc1">
+			<h4 class="subtituloidk">Detrás de Camaras</h4>
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEhlysl5hEYZ2tsIBiZ25e8sfNEIsxy2-X7Jlw1mQ6FlKF40aZVQFTSMTg03Q3MsqLkTeMmq8m1xmHAHBLinXQ1TOgrRG8VnB_AjYwSmhROiSXT3s_eenFr5fI5fo94dPwvuAOGHz54OL1H073pApdhJC1uADzBQYsz0FrtpGQrq-2HVdVNWoT1iTke6" width="300" alt="Elementos usados">
+			<p><small>Los materiales principales usados para las fotografías.<br>
+				 Esta vez, al contrario que en mi primer intento <br>
+				utilice un cordón de zapato café, e imite el llamado nudo de ahorcado, <br>
+				el cual también muestro con más detalle en uno de los planos fotográficos; <br>
+				la muñeca sigue siendo la misma.Los elementos usados para las fotografías</small></p>
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEjeF56d28LuvGClsSJPFUrwYE8zMOsmprss35aSWX_4fLiZeMedJU7W-pA9gknbSpLiQd5JjIOM5r-GLgWQxE_9iLwkkmf5wmK7I7eBbyIm2V8qCAJmPQwh5fthBZzVQL9hxv10kaL2LKzu82DjLk6oVpPqFdOIwsD3X17r6b4366kT2ufHNSxc4p4X" width="300" alt="Nudo cuello">
+			<p><small>El escenario. En la lectura se describe como la mujer se colgó en su habitación, <br>
+				por lo que <b>intente</b> imitar lo que sería un dormitorio en lo más posible, <br>
+				principalmente tapando el fondo con una cortina (que no fue nada facil de colgar en esa posicion) <br>
+				para dar ambiente, así como haciendo la cama más notable para la vista; el único detalle <br>
+				que me complicó fue la iluminación, ya que uno de los focos del apartamento estaba directamente <br>
+				sobre la cama, por lo que lo tuve que tapar con un papel para disminuir la luz lo suficiente.</small></p>
+				<br>
+		</section>
+	</article>
+
+	<article class="entrada" id="week2">
+		<br>
+		<h2>Actividad 2 - Semana 2</h2>
+		<table class="center">
+			<td><a href="#b_lectura">Bodegón Lectura</a></td>
+			<td><a href="#b_videojuegos">Bodegón videojuegos</a></td>
+			<td><a href="#b_puzzles">Bodegón rompecabezas</a></td>
+			<td><a href="#ddc2">Detrás de Cámaras</a></td>
+		</table>
+
+		<h3>Bodegones</h3>
+		<p>Para esta actividad tuve la oportunidad de seleccionar un tema libre <br>
+			a parte de la lectura recomendada para la tematica de mis fotografías, <br>
+			por lo que, aunque en un inicio no sabía que utilizar de tema, <br>
+			después de pensar un poco en la fotografía de ejemplo que tomamos en <br>
+			el chat de esta semana se me ocurrio una buena idea, foto abajo.</p>
+		<img src="https://blogger.googleusercontent.com/img/a/AVvXsEhF8xXpGE61ZRC_Y02XgZSYWQE-UhiL_BFOqSiCJfXeaW-FN42YN1W-DeSD8YrhDH8tJVNqArJ1s1CLe9BHhhPwp3hBdSopys-iZYxh0CDDhM5GSbp3Y5__Bh4w9BA_X8ZwIp8RkIobNPeha5Ynxg35kQ6Rnu6gluRbf3VEZCyaVOYlu-OOYA4Ewr0r" width="240" alt="bodegon chat">
+		<img src="https://blogger.googleusercontent.com/img/a/AVvXsEhYgJI4HWkBfTY0ClNNVfcdb7bQyGLYavaBraLWRn2WANgqmc_5eBdhKkgseBKAXUWJCtux2tvwcoUNrudb1tKy8aDLxCyUrtzo4Ko_HTFM-vAL-Ucr1-cerQ1fr_69REd84gDJVTFVpec2FXnzVIxJjreCLvy-xrX_1ETIVWIOEUmUPv4IwAFHdWYz" width="240" alt="bodegon chat con cuadricula">
+		<p>En esta fotografía se ve que simplemente utilize objetos que se encontraban <br>
+			en mi escritorio, el cual ya de por si esta tematizado con videojuegos, ya que <br>
+			tengo bastantes controles y audifonos, asi como juegos en sí, también se puede ver <br>
+			como en esta imagen se aplica la ley de tercios, en donde cada uno de los objetos <br>
+			entra en un punto entre las lineas de los cuadrados. Por lo que en base a esto <br>
+			decidi realizar mis 3 composiciones de bodegones usando objetos que representasen <br>
+			temas los cuales a mí me apasionen, y para esto elegí la lectura, los videojuegos <br>
+			y los puzzles tridimencionales (cubos). Ahora a las fotos.</p>
+
+		<section id="b_lectura">
+			<h4>Bodegón de Lectura</h4>
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEgeAgtfFNjZuCPMkbB6samtRlbrPqHZ1EX-mBmmvqF7GDTcK2qtbpAGcmboWbH4W3pjEeyJRfwDILquRFPt647FEdKsLyS1dDcxkDB_GpuPNgxV-NKN9yEiXX8-Oyuiu1M7nGv3bhY7RJaQy33JUbmgOWWk45nUGliqHmcMWdYrBE3O-PQlfplnagHA" width="400" alt="bodegon lectura">
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEjnLGB5z8uNBb0hRbbifAtP0NAVHIa_QG12fQcULb1TpM4rhgNeS28zo5UaePWLSpt1k7pmvZtws2yZl2JgGpEcRXyFUm_fKRfV4tVhWSwceYZsDWjbL9a9XjrB0CIWPUS3oggwbVL2NKSH3dtlGKuPgxQhrxYLcINLGle7-F0iTaaRIKodT0dI9p-r" width="400" alt="bodegon lectura con cuadricula">
+			<p>Para esta primera composicion decidi buscar un par de objetos que tuviese yo <br>
+				que pudiera relacionar con lo que es para mí la lectura, asi que simplemente tome <br>
+				uno de mis libros favoritos, prepare una limonada, y adorne con unas gafas y una vela, <br>
+				aunque ironicamente no logré encender la vela ya que estaba vieja- pero de igual manera <br>
+				le da un buen toque al ambiente en mi opinion; sin mencionar que el libro, la limonada y <br>
+				las gafas entran en la ley de los tercios, haciento que la foto se vea bien.</p>
+			<br>
+		</section>
+
+		<section id="b_videojuegos">
+			<h4>Bodegón de Videojuegos</h4>
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEjokP5lD7lWI4TH-xidkJhxqfTPjb2eNlvFdzOUhxhoebdUBbvNzqTmfP-3r8kQ9-QOVF9zJbUipwhCHqZn369506oiUivY4kIEAqGrQUYaJweH6T7fp5wVGieHcVe3AJqhpzGW_XnNI_vOj6i_OBR7685t067_06mDH4lh5oSfydM_9hhJZop2ppZ8" width="500" alt="bodegon videojuegos">
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEj5-1qdOn526JZhtVb2UmYKdxPHzXNHfQ5obssGMMIGdu1f-fHTUb5KElJMivJnqjoHhUGk3_en-GbqmWna3LjRF3u-ZqucV3p1blF99rf6rivhhkeon0DBGE-umUfhtinJoa5R0v5Zoew7PalBFUrIzmCbfcf3d3f1jDKwb9nykn9XUocqcms4sSR1" width="500" alt="bodegon videojuegos con cuadricula">
+			<p>El desarrollo de este fue bastante más simple, ya que como mencione anteriormente <br>
+					mi escritorio está lleno de cosas como estas, por lo que simplemente <br>
+					utilice un par de audifonos, un control y el disco de uno de mis videojuegos favoritos, <br>
+					e inspirandome en la foto que tome inicialmente durante el chat semanal, organicé los <br>
+					elementos de manera de que estos se acomodaran en la cuadricula placenteramente.</p>
+				<br>
+		</section>
+
+		<section id="b_puzzles">
+			<h4>Bodegón de Rompecabezas</h4>
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEhwxsI5wW2HR-PKckI1yWJNBgSKv9Pl_jPc8SX6HBouCUq9AB2y2LI5I0Dh8Z-9HTV3coA75tvvxMqwRqkXaCUWJXY4iwyMWY3_GMqtLTKO6Hldo8tCRJOZsqbH9ViTtix1jkAmd7LX1afC1HzCm94SlSZU_F2J-e3z45we_XrWYug2Rynuv80YDR78" width="400" alt="bodegon rompecabezas">
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEifYIBowG81mw0U54o6Azb__ntQxIPXc3qgGG91hLZBpJ3Ch3RcKs0B1vVEBGfDOCdqd990aDf87jkuAB4pnK4pOGNQREuwQ7BdmMatVaRwu71-nCGvoYv7N6NYFdZbIyqjp_9Gqc6Lc200OlJMq0-IKuZU0YzG1O3IGU2TM-YqjJVcJA4lHdPYcEKE" width="400" alt="bodegon rompecabezas con cuadricula">
+			<p>Y para este último bodegón tomé tambien unos cuantos cubos que se encontracen a mi alrededor <br>
+					y los puse de manera que estos quedaran acorde a la ley de los tercios. A mi opinion se ve lindo :)</p>
+		</section>
+
+		<section id="ddc2">
+			<h4>Detrás de Camaras</h4>
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEjniJDKQOcNC-2wExcWxHsFzgPorfQzDciak6eHDJNYzJMobkGiujHNDYh8_Bc6vcfLoq_xbDM9ljnZO_FjFn4HvyjfW0QbwW7duK1SLTFzThyDW00gEeDiDSWdqvaw1Le7C8sqnwqZq2L7CUDBrOQIf9mMXoi4Yyo8kPHMUb25p38syycdzSNMvvpn" width="300" alt="bocetos">
+			<p><small>Los bocetos iniciales para cada composición</small></p>
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEhff_BZVQsGezFMbOBOB724doTvmr7rgg0lfJCWFhNMhMwTLDbQ3tS8GUxn0VIq67gdW1b9_ulEJ88eBxTEOjj473ZQTFIUZlUZSGD9Up642Ivj1INRutPyq-HPvC2KOCPdlspj8o8Q40qWZBFFVO7djpETgKX2TOIiu0SD2_GyUboJGX2wKCTvq2wE" width="350" alt="panorama">
+			<p><small>Todos los objetos utilizados junto al fondo de las fotografías</small></p>
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEgoKmHI5TLnK5TqtCmwZQNf36T1PRvy6enGQtglBQ1gK0t9eX4YNo2me999W0semo45Pkbp-2r-Ng7usxzShs-wU_YpbBZKY5k2BPKColyKGFak_j9phooCBMYpfMT8s7bSYhmWgYBIXW4YM3Mmqo4sO0WieDkWo7yewLWve5sfc7FUE-dQlGyEPE2A" width="300" alt="detalles">
+			<p><small>Aqui se pueden ver algunos detalles, como que utilice el dodecaedro (poligono de 12 lados) <br>
+				para sostener el libro y que este no se cayera mientras tomaba las fotografías; tambien <br>
+				se aprecia el patron que realice en uno de los cubos para las fotografías, el cual <br>
+				es algo placentero de observar. Y como detalle final tambien se ve como las gafas <br>
+				que utilice para la fotografía carecian de una pata, lo cual me causo gracia.</small></p>
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEjWRMEzqRJrLOJ0ZzdSL0Iv5H-WIEMCBRqRNajz93V0gSGl-WVu00tqpoT0i6AYZmvfNNFw6SZ4eTV7GeRPAMJLKZ0ULBC3jOLv-kir05Kge1J4KPc-xVuN1LBWPfpq83EC05ob6aLF0sm3kxvddMuO0bhNvPK6CnFieDsYc3lO3c47XI0zEXWudblI" width="300" alt="fondo">
+			<p><small>Para sostener la cartulina solo se necesitaba poner cualquier objeto sobre esta para que no se resbajara, <br>
+					no tuve que utilizar nada más que eso para mantenerla como fondo estable durante cada fotografía</small></p>
+			<br>
+		</section>
+	</article>
+
+	<article class="entrada" id="week3">
+		<br>
+		<h2>Actividad 3 - Semana 3</h2>
+		<table class="center">
+			<td><a href="#i_ventana">Iluminación de Ventana</a></td>
+			<td><a href="#i_artificial">Iluminación Artificial</a></td>
+			<td><a href="#i_natural">Iluminación Natural</a></td>
+			<td><a href="#ddc3">Detrás de Cámaras</a></td>
+		</table>
+
+		<h3>Iluminación</h3>
+		<p>Para esta actividad, tuve la oportunidad de aprender a trabajar con <br> 
+			diferentes tipos de iluminacion en la fotografía; y aprovechando que <br>
+			tuve la oportunidad de seleccionar un tema libre para esta actividad, <br>
+			lo que hice fue tomar mi cubo de Rubik, y angularlo en varias posiciones <br>
+			para de esta manera tomar tres fotografías con 3 tipos de iluminacion diferentes.</p>
+		<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIPWybYHrJopwH1DnxIzYU_e_F6eZWjFtJgb_RuwwKQv_yilDtyXqcQBslQBH8FgZhI53H5wvP3jbOto5Yt5Z-k6sAmFP9C6Xpk88S9I8g9KkVYf6HcbQE7W8AHTZVq63emEweW9wO2lOaee0qcRNctcmpTOskmylT9QwdtqEbMGVW6JYIgVDkit_-/s960/light.png" width="400" alt="tipos iluminacion">
+		<p>Lo que hice basicamente fue poner el cubo de Rubik en diferentes posiciones, <br>
+			para que de esta manera pudiese lograr los diferentes tipos de iluminación. <br>
+			También estoy conciente de que no pude lograr los mejores angulos de fotografía, <br>
+			pero es dificil sostener la camara con un brazo lastimado. Ahora las fotos. </p>
+		
+		<section id="i_ventana">
+			<h4>Iluminación de Ventana</h4>
+			<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOgpt0hEJF38iAh9w1IL-1S4LVpGWx-tFMKRhqb6ULFLvajakpXfPMiHVw7LsP6oSDxRRqSPBUxSamz2z-ZF1_ZVdY68yeerpN6qvxI2XRBgsMcOh_zY6Qh3on-eU3TuyqI17_gmfijoTKzbbd3shZ6s--vOmrLjemORAGRniINO6Ch643pgzSk5pF/s4000/1667227396610.jpg" width="400" alt="iluminacion con ventana">
+			<p>Para esta primera fotografía lo unico que tuve que hacer fue posicionar el cubo <br>
+				de forma que a este le diera la luz que lograba entrar por la ventana, <br>
+				era un dia soleado por lo que tampoco tuve mucho problema con la iluminación, <br>
+				y tambien use una cartulina negra para el fondo de esta fotografía. <br>
+				Se puede ver como la luz que logra entrar por la ventana le da en la parte de arriba del cubo, <br>
+				mientras que en la parte inferior este tiene su sombra normal.</p>
+		</section>
+
+		<section id="i_artificial">
+			<h4>Iluminación Artificial</h4>
+			<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUUhkZl5fcOagzOMge2X40AXmC3smHBi5x5fxF2II9yTiqSiWxFNK9vCa4hDLqkTQ_nm5KFhLAfFcRRJmARy5FMrV3wBMis9FMNM9wf9RJ98SYthZsenXGljmkkVYNl6MQJHXuuPJbo6dRjS8BWKjRi83zJ3gtuqtOEgKFWr4hD_aK4GidHYYZZChU/s4000/1667227396599.jpg" width="450" alt="iluminacion con linterna">
+			<p>Para la segunda fotografía, tuve el cubo practicamente en la misma posición <br>
+				que en la primera fotografía, la diferencia con esta fue que tambien usé ayuda <br>
+				de una linterna y papel aluminio, para que de esta manera no solo tomase iluminacion externa <br>
+				por la ventana, sino que tambien tomara iluminacion artificial por parte del reflejo <br>
+				de luz de la linterna.	Esto anterior se puede apreciar ya que, <br>
+				si nos fijamos bien en la parte inferior del cubo, el color amarillo se ve muchisimo más claro <br>
+				y brillante gracias a la luz, comparado con la primera fotografía.</p>
+		</section>	
+
+		<section id="i_natural">
+			<h4>Iluminación Natural</h4>
+			<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgK5Hre0BamUp7mlkqg4YxejAZd4OrXh6Ojqk3pbC3_kE5TXmo_NRIqKgHQzmGklYPqfG0KfBol8nkGd__npN6bdm462gzHnkdDEugt6vsInuDLmMwXx64HI0zO4aImVRjp-UW7gr5QD3lxrJ9IvUeWUDdFz4cDDMsaXprnGqW2oeG_0ePBz59SD3zS/s4000/1667227396576.jpg" width="400" alt="iluminacion natural solar">
+			<p>Para esta última fotografía, lo que hice fue tomar una ventana que daba directamente al cielo, <br>
+				de la cual se recibia una considerable cantidad de luz solar, y lo que hice fue simplemente <br>
+				posicionar el cubo debajo de esta para que recibiera toda la luz natural del sol. <br>
+				Se puede apreciar como los colores del cubo se ven mucho más vivos y brillantes <br>
+				comparados a las anteriores fotografías, a exepcion del amarillo en la parte inferior, <br>
+				ya que al igual que con la luz de ventana, este es opacado ligeramente por la sombra del objeto, <br>
+				pero esto no se nota tanto aqui comparado a la primera fotografía.</p>
+		</section>
+
+		<section id="ddc3">
+			<h4>Detrás de Cámaras</h4>
+			<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjY6KeXwdh9VM1FaK1XS_f3vHd3nqsc81KUYEv-otxTsHvp0M1x2ptXNM6Qz0dXYrDL24EVBh9A_Dzh45t4FAyhkbWqLxRXKvhCn2Mn8lupJhwDi-Sx0BLTEJH73d0ScNvnORRyIDi4NqR3061RRFZBQN8ufjM_fyb86FwNgfxQtoRiBZCLJLF-o7fr/s4000/1667227396588.jpg" width="400" alt="iluminacion con linterna y aluminio">
+			<p><small>Aqui se puede ver como se tenía la cartulina con el cubo junto a una ventana, <br>
+				y asi fue como se tomó la primera foto, y después para la segunda simplemente <br>
+				se añadió un poco de papel aluminio junto con una linterna para asi dar el efecto que se deseaba.</small></p>
+			<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTuEjQ5kLyCdDnTVC7AuSesK2MIDQ67AGbzbasbKgvzc0XmTy-M70cNAUvSOJ76iktwvIF5UvWlZz8OaPdz14j64fLAYicXmE29ECinSMjTjAizZdI8ogAc7E-XTfKTDAjp7LTYvAb2hvXMEWzm7HXn9HTvrmjhfK8wZIypS4UleyMnJcd48bGk0IB/s4000/1667227396566.jpg" width="400" alt="tonto tomando una foto">
+			<p><small>Para la tercera fotografía use la luz proveniente del sol con la ventana del techo de la casa, <br>
+				y simplemente apoye la cartulina en una caja de carton para asi poder realizar el fondo <br>
+				y tomar la fotografía con la luz solar.</small></p>
+			<br>
+		</section>
+	</article>
+
+	<article class="entrada" id="week4">
+		<br>
+		<h2>Actividad 4 - Semana 4</h2>
+		<table class="center">
+			<td><a href="#en_horizontal">Encuadre Horizontal</a></td>
+			<td><a href="#en_vertical">Encuadre Vertical</a></td>
+			<td><a href="#en_inclinado">Encuadre Inclinado</a></td>
+			<td><a href="#ddc4">Detrás de Cámaras</a></td>
+		</table>
+
+		<h3>Orientación del Encuadre</h3>
+		<p>Para esta actividad, tuve que realizar un diorama, y a partir de este <br>
+			realizar unas fotografías con los diferentes tipos de encuadre. <br>
+			Tuve la oportunidad de realizar esta actividad con tema libre, <br>
+			por lo que utilicé un diorama el cual ya tenía desde hace tiempo, <br>
+			y lo unico que tuve que hacer fue fotografiarlo.</p>
+		<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-J2cgBUnhQjaxGq-SI-jsAJyy-bkYW2I14aUUFcORBsA4Hx6gKHzPJY4Rg9k27VfeyMy0Gu8A_AxaHrGpDuvEcpc2Evl0jG1scWNB83kot2ckAGQNMiuwklujdzpbHRz2RLBCmuvQkS5cIu7Rcue8beuNWpb4EVj79k5Z4FSol394v64bsAOcsgDq/s4000/IMG_20221011_155957.jpg" width="400" alt="maqueta casa">
+		<p>Este fue un diorama el cual tuve que realizar para mi anterior colegio <br>
+			hace mucho tiempo, estaba guardado en la casa de mi abuela, por lo que viendo <br>
+			lo que tenía que hacer para esta actividad, simplemente le di una buena limpieza <br>
+			y lo preparé para las fotografías.</p>
+
+		<section id="en_horizontal">
+			<h4>Encuadre Horizontal</h4>
+			<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgF8xj-d7xssEDkGl1ow5mUfhxBUIJghYOnuX3eoGcbLOzujoeiQckN3PPxihz7elCp4P9QXZjykY3-8mVtRraFODFnZC00iNqGEG7gejmfMTAe6Sl5LOcyIYAyGx6QDWdx9WPTSWABfD50UC03F0qb3miz3NF4nW7QL08wamEqHan-Of9srgJdTAVZ/s4000/IMG_20221031_085616.jpg" width="550" alt="foto en encuadre horizontal">
+			<p>Para este tipo de encuadre, lo que hice fue simplemente tomar el diorama que hice, <br>
+				y ponerlo frente a la ventana de la casa, de esta manera se favoreció de la luz del sol, <br>
+				asi como del fondo que tenía, no era una cartulina para tapar las cosas, al contrario, <br>
+				eran más casas y cables de postes los que se veian en el fondo, por lo que ayuda <br>
+				a dar estetica a la fotografía para que se vea que, en efecto, es una casa. <br>
+				En este tipo de encuadre intento enfocar en más detalle la casa, mientras que tambien <br>
+				hago que se favorezca del fondo y resalten ciertos objetos, como el gato en el techo de la casa.</p>
+		</section>
+
+		<section id="en_vertical">
+			<h4>Encuadre Vertical</h4>
+			<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZ59_-CdyAZae4AkT-pKpV75SIuy7ctzm3Tfegc9H6J4k-_XSz3rfJ4Ts5ppk2MrHgBl7DR5ZlTh1NQXDjKMUPc6SNDhc9kkjS9py7zvjhA4zZvh5vfGxP5Y3CvN3D0qqBlYFNxLHVcu5_5cKA85wipa5NLrnYHZ9VvlWnnAdvYAH6rV-jVgwBCqpy/s3941/IMG_20221031_085635.jpg" width="450" alt="foto en encuadre vertical">
+			<p>Este tipo de encuadre funciona basicamente de la misma manera que el anterior, <br>
+				solo que, para este, en vez de enfocarme tanto en los objetos de la casa como tal, <br>
+				intento integrar más el fondo de la fotografía con el encuadre, aquí <br>
+				se ven mucho más las casas y los árboles que hay en el fondo, <br>
+				de nuevo, ayudando asi a la estetica y al tema del diorama.</p>
+		</section>
+
+		<section id="en_inclinado">
+			<h4>Encuadre Inclinado</h4>
+			<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgks7yxWzYjkvj6M5ZWvB9ojjeXTVaQlTRj6eJI4p5qZ_4xstfCUh0bUG7gVRkl0XqBSrFo-NAihJg4eRpaMqB30GXADsI4b0m5sdsEy_QjQRtN3jMmGoX0oRh5CDsEfu-cye9Nh4vIRYvgayp_cw59url4yAETN5r_EOG5sl2QFO8hgjW4zKHl7CTf/s4000/IMG_20221031_085809.jpg" width="550" alt="foto en encuadre inclinado">
+			<p>Para este último tipo de encuadre, deje de concentrarme tanto en el fondo, <br>
+				lo cual no favoreció mucho a la fotografía, ya que, aunque todavia <br>
+				se ven las casas y arboles de fondo, se ve más los detalles de graffiti <br>
+				y no se nota tanto las casas. Mi objetivo con este tipo de encuadre fue <br>
+				mostar a más detalle todos los objetos que habian en el patio de la casa, <br>
+				siendo las personas, el parque y la casa del arbol, de nuevo, la iluminacion a contraluz <br>
+				ayuda a que se aprecien mejor ciertas cosas, como el gato del tejado.</p>
+		</section>
+
+		<section id="ddc4">
+			<h4>Detrás de Cámaras</h4>
+			<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7nzquEWVrDUHI9cj47NYCf78gQNfpa2E7EKkjQnoBCGitj9EZhUEg12LmIly6On88rwQLNjFd5KQdswibaTAe48U-M_pSjOPZhg-JJoUTYeouJ3T-2GIq1wfwlZ1eOg_QsV8DRlIHj3UrKzJHwSJu6AAKVlBS9PdaddpYVqbmAuQoN2iyVmbDbKEX/s4000/IMG_20221031_085910.jpg" width="600" alt="area de trabajo">
+			<p><small>Aquí se puede apreciar toda la escena que utilice, simplemente tome una mesa y la puse frente a la ventana, <br>
+				y utilice una caja de carton para levantar la casa a una altura considerable y que de esta manera se pudiese <br>
+				apreciar el fondo que hay detras de la ventana con todos sus objetos.</small></p>
+			<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3tbNQWRYcgb6_mzzeD83M4XA_5_du01FSGO9f7yRPzxXAqf-I2gucj1hm4D7Q24bzXl1F-QIcu4FQ2hQJAh9dSyXH8RzYROqE8aJbYMnlR85p7paGXUhV0uobx3XVqoBCbgM0QK3nAxiVS7RYnfUwFCEvZiZ06vUH1XoW8bo7vsswNXliuwWERV0a/s4000/IMG_20221031_085934.jpg" width="300" alt="interior casa 1">
+			<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4v6N7p_wbRjAwPLgf_--AjYtVBBqGs7a8F9bNBHaziUjL4_P13R0Q7qMalUyIkjE8CACeDSHPFsXYZ0mXt9m7Y8dF5ncsya5RxhOhZuagCEJLFmH3ysLWkrQnA3-oMNmRzL-n9LRx43-r0GcpO7xoLJ0M1GWspX6Kf2skoCHaxhyrUHTZt51NaGul/s4000/IMG_20221031_085950.jpg" width="300" alt="interior casa 2">
+			<p><small>Aunque no puedo tomar evidencia del proceso de como realicé el diorama ya que yo habia realizado este <br>
+				desde hace mucho tiempo ya, si me gustaria mostrar toda la atencion al detalle que hay dentro de la casa como tal, <br>
+				no es una casa vacia, es un escenario completo.</small></p>
+		</section>
+	</article>
+
+	<article class="entrada" id="week6">
+		<br>
+		<h2>Actividad 6 - Semana 6</h2>
+		<table class="center">
+			<td><a href="#recortes">Recortes</a></td>
+			<td><a href="#ddc6">Detrás de Cámaras</a></td>
+		</table>
+
+		<h3>Intervención en la Fotografía</h3>
+		<p>Para esta actividad tuve la oportunidad de seleccionar un tema libre para mi fotografía, <br>
+			y en vista de que tenía que realizar algun tipo de intervencion en esta, <br>
+			no estaba seguro de que fotografía tomar, por lo que al final tomé la siugiente fotografía, <br>
+			para despues realizar la intervencion en ella.
+		</p>
+		<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPraoz8aVQOmaV0lDX--9yAp5ut2QKQfbrkDqLpa0-apOnMrAjOEClkVYI22bxIHOS5QXpT5wOaVjqoRNyJ8YxpuCobYfXcMydsWh6wWEmaO0IsPQ2X2EKT9u__o31j_S1c1B8fHnzZISKgx--WQw-IEdL8XPE1L4gssQzpHotekEV8Zvy-IM4Bdz_/s8000/1668031201678.jpg" width="400" alt="estatua">
+		<p>Esta fotografía es de una escultura la cual encontre justo afuera <br>
+			del Aeropuerto El Dorado de Bogotá, me pareció bastante linda así que <br>
+			simplemente tomé la fotografía en vista de realizar la intervención en esta más tarde.
+		</p>
+
+		<section id="recortes">
+			<h4>Intervención fotográfica, Recortes</h4>
+			<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5p6RX90z2sKvjQEKsGL-LyRjlzBSv5AoawdvW05eC7gdh08OgRvD3F1hQow44kxw_ZsbvQe5nH4pb_9wmThxZDz4V5z3FQIgLEuWKrvex3zT4C6I8KKz8fydOZQi3YXib1oD6U1BdLcx4M8rQWQTX2yDYz2auIKdbdrn9O2WCly1dXy7q88XYF1mn/s4000/1668031201646.jpg" width="400" alt="foto con recortes">
+			<p>
+				Este fue el resultado final de la fotografía, la intervención que realize <br>
+				fue adornar un poco con un poco de recortes de diferentes colores para <br>
+				formar un arcoiris y también para darle en cierta forma más color a la figura. <br>
+				La razón por la que decidí realizar este tipo de intervención fue porque, <br>
+				aunque la fotografía original no me disgustaba tanto, la falta de color y vida en esta <br>
+				era inquietante, ya que lo unico que hacía era mostrar la escultura sin <br>
+				ninguna clase de resalte ni nada por el estilo, lo que yo hice fue hacer que la fotografía tuviese un significado diferente, dandole más color a esta y también haciendo que la escultura resaltara mucho más.
+			</p>
+		</section>
+
+		<section id="ddc6">
+			<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjh0lrcAPvmZQIAV9zE2onpJa0v_jftrO67wHA9GIeq0xazuj8TYMc4ADNJK2ZwN1l2lsg5PJs96i8-jzkdk21S_n4pQ5P_oLvPspYpBwlqpMf0pWQI5yM33YmvblDqVeiInmYtZS8n8R6NDRZk-k9Fm61H8WlgT1NJZFTsJHziNggEqZRVkxb054Rs/s4000/1668031201668.jpg" width="350" alt="escenario de estatua">
+			<p><small>La ubicación de la escultura con respecto al Aeropuerto</small></p>
+			<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5uh4aLaLgz7LOqoZMJoIGgM9BSpas0lsPmQromuWikj9Ui-SWGC-LQrRaCL05KlZ7ebl9s4EbK62ggydZlF8ZiC7q8C1MXeN_zLS7S4-wBJbhRsjgeQRhhUNSt7WuexAK7zljucJjo-gaijmp8sScmDbHgJIXtyACmXwiOVz0de81gqWXD-uhqN_d/s4000/1668031201656.jpg" width="450" alt="mesa de trabajo">
+			<p><small>El proceso de recortes para la fotografía, utilice un blog de hojas de origami <br>
+				ya que estas vienen de diferentes colores, perfecto para mi idea.</small></p>
+				<br>
+				<br>
+		</section>
+	</article>
+
+	<aside id="ref">
+		<h3>Referencia</h3>
+		<p>Este blog es meramente una copia de mi blog original en <a href="https://diosmionosequenombreponer.blogspot.com/">Aula de Artística</a>. <br>
+			Solamente estoy utilizandolo como referencia para el desarrollo de esta pagina web.</p>
+	</aside>
+
+	<footer>
+		<p><strong>Hecho por:</strong></p>
+		<p>Daniel García Higuera - danielgarciah.1014@gmail.com <img id="pfp" src="https://lh3.googleusercontent.com/a-/ACNPEu_Yt_0b_AGHH1h-PiTVzmF9_-ZzbCtslv0IX-Mnhw=s83-c-mo"></p> 
+		<p>Grado Decimo - Aula de tecnología</p>
+	</footer>
+</body>
+</html>
